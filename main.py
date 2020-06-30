@@ -14,7 +14,7 @@ class App:
     def __init__(self):
         self.input_boxes = list()
         self.boxes = list()
-        self.stock = Stock()
+        self.stock = None
 
     def open_file(self):
         """
@@ -37,8 +37,7 @@ class App:
         """
         Store the boxes in the warehouse
         """
-        for box in self.boxes:
-            self.stock.add_box(box)
+        self.stock = Stock(self.boxes)
 
     @property
     def stock_checksum(self):

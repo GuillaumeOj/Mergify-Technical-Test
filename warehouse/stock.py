@@ -3,14 +3,8 @@ class Stock:
     Represent the warehouse
     """
 
-    def __init__(self):
-        self._boxes = list()
-
-    def add_box(self, box):
-        """
-        Store a box in the warehouse
-        """
-        self._boxes.append(box.content)
+    def __init__(self, boxes):
+        self._boxes = boxes
 
     @property
     def two_letters_boxes(self):
@@ -36,8 +30,9 @@ class Stock:
         """
         boxes_number = 0
         for box in self._boxes:
-            letters = set(box)
-            for letter in letters:
-                if box.count(letter) == letters_number:
-                    boxes_number += 1
+            if (letters_number == 2 and box.has_double) or (
+                letters_number == 3 and box.has_triple
+            ):
+                boxes_number += 1
+
         return boxes_number
