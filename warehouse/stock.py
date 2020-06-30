@@ -4,7 +4,7 @@ class Stock:
     """
 
     def __init__(self, boxes):
-        self._boxes = boxes
+        self.boxes = boxes
 
     @property
     def two_letters_boxes(self):
@@ -29,7 +29,7 @@ class Stock:
         Count boxes with letters_number inside
         """
         boxes_number = 0
-        for box in self._boxes:
+        for box in self.boxes:
             if (letters_number == 2 and box.has_double) or (
                 letters_number == 3 and box.has_triple
             ):
